@@ -14,7 +14,7 @@ stock_name = ["CKH HOLDINGS","CLP HOLDINGS","HK & CHINA GAS","WHARF HOLDINGS","H
 stock_list = {}
 for i in range(0,len(stock_No)):
     stock_list["HK"+str(stock_No[i])] = {'stock_no': stock_No[i],'name': stock_name[i]}
-
+year_list = ['2012-12-01','2013-12-01', '2014-12-01', '2015-12-01', '2016-12-01']
 # def add_zero(number):
 #     if len(number) == 1:
 #         number = "0000" + str(number) + ".hk"
@@ -70,7 +70,7 @@ for i in stock_list:
 
 
     for a in range(0,5):
-        year = stock_list[i]['RAT_Year'][a][0:4]+'-'+stock_list[i]['RAT_Year'][a][5:7]+'-01'
+        year = year_list[a]
         Ratio.objects.get_or_create(RAT_COM_StockCode = code, RAT_Year = year)
         ratio = Ratio.objects.filter(RAT_COM_StockCode = code, RAT_Year = year)
         # ratio = Ratio.objects.filter(RAT_COM_StockCode = code, RAT_Year = stock_list[i]['RAT_Year'][a])
